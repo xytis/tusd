@@ -80,7 +80,7 @@ func CreateComposer() {
 		// GCS_SERVICE_ACCOUNT_FILE environment variable.
 		gcsSAF := os.Getenv("GCS_SERVICE_ACCOUNT_FILE")
 		if gcsSAF == "" {
-			stderr.Fatalf("No service account file provided for Google Cloud Storage using the GCS_SERVICE_ACCOUNT_FILE environment variable.\n")
+			stdout.Printf("Attempting to use default GCS credentials because no GCS_SERVICE_ACCOUNT_FILE env var was provided\n")
 		}
 
 		service, err := gcsstore.NewGCSService(gcsSAF)
